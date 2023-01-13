@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani&display=swap");
+
+.contact-container {
+  font-family: "Rajdhani", sans-serif;
+  background-color: #fedfcebc;
+  height: 89.5vh;
+}
+.peach-image {
+  height: 90px;
+  width: 90px;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+h1 {
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+p {
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+}
+.shy {
+  font-size: 2rem;
+}
+.boxes {
+  display: flex;
+  flex-direction: row;
+  margin-left: 30%;
+  margin-top: 4rem;
+  gap: 10rem;
+}
+.boxes img {
+  height: 40px;
+  width: 40px;
+}
+.social-icons {
+  border: none;
+  transition: .3s ease-in-out;
+  background-color: rgba(57, 56, 56, 0.443);
+  padding: 1rem;
+  border-radius: 10px;
+}
+.social-icons:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+

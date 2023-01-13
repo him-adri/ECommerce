@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani&display=swap");
+.top-border{
+    margin-top: 1rem;
+    border-top: 1px solid black;
+}
+.categoryNav{
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    padding-top: 2rem;
+    margin-left: 15%;
+}
+.categoryLink{
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-family: "Rajdhani", sans-serif;
+}
+.categoryLinkText{
+    transition: .1s ease-in-out;
+}
+.categoryLinkText:hover{
+    border-bottom: 2px solid red;
+}
+.bottom-border{
+    border-top: 1px solid black;
+    margin-bottom: 1rem;
+
+}

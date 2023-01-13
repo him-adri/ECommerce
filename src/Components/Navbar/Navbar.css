@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+
+a{
+  text-decoration: none;
+  color: black;
+}
+.nav-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.nav-heading {
+  margin-left: 3rem;
+}
+.heading {
+  font-size: 2rem;
+  font-family: "Shadows Into Light", cursive;
+  letter-spacing: 5px;
+  color: black;
+}
+.first-letter {
+  font-size: 3rem;
+  font-family: "Rajdhani", sans-serif;
+  color: red;
+  font-weight: 2200;
+}
+.full-stop {
+  list-style: square;
+  color: red;
+}
+.nav-items ul {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 3.5rem;
+  margin-top: 1.5rem;
+}
+.nav-items li {
+  list-style: none;
+  font-size: 1.3rem;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 900;
+  transition: 0.1s ease-in-out;
+}
+.nav-items li:hover {
+  border-bottom: 2px solid red;
+}
+.wish-cart-icon-flex {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  margin-top: 1.5rem;
+  margin-right: 3rem;
+}
+.wishlist,
+.cart {
+  transition: 0.3s ease-in-out;
+}
+.wishlist:hover {
+  color: red;
+}
+.cart:hover {
+  color: green;
+}
+.cart-length{
+   font-family: 'Rajdhani', sans-serif;
+   background-color: rgba(0, 128, 0, 0.308);
+   border-radius: 50%;
+   padding: 0.2rem;
+}
