@@ -1,40 +1,59 @@
-.cart-container{
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-top: 30px;
+.cart-container {
+  width: auto;
+  margin-top: 30px;
 }
-.cart-list{
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
+.cart-list {
+  height: 50vh;
+  width: 40%;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
 }
-.cart-item{
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    gap: 30px;
-    align-items: center;
-    margin-bottom: 20px;
-    border: 1px solid #efefef;
-    border-radius: 12px;
-    padding: 10px;
-
+.cart-item {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid #efefef;
+  border-radius: 12px;
+  padding: 10px;
+  font-family: "Rajdhani", sans-serif;
+}
+.cart-item-description {
+  padding: 1rem;
 }
 .cart-item-image img {
-    width: 100px;
+  width: 100px;
+  border-right: 1px solid black;
+  padding: 1rem;
 }
-.cart-item-name{
-    font-size: 18px;
+.cart-item-name {
+  font-size: 18px;
 }
-.cart-item-desc{
-    font-size: 14px;
-    color: #999;
+.cart-item-desc {
+  font-size: 14px;
+  color: #999;
 }
-.cart-item-price{
-    font-size: 18px;
+.cart-item-price {
+  font-size: 18px;
+  padding-left: 1rem;
 }
-.cart-item-old-price{
-    font-size: 14px;
-    color: #999;
-    text-decoration: line-through;
+.cart-item-old-price {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+}
+.button {
+  background-color: rgb(164, 30, 30);
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: auto;
+  float: right;
+  transition: 0.3s ease-in-out;
+}
+.button:hover {
+  background-color: rgb(236, 10, 10);
+  color: black;
 }

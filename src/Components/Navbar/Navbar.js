@@ -39,10 +39,10 @@ const Navbar = () => {
           <Favorite className="wishlist" />
           <Link to="/Cart">
             <ShoppingBagIcon className="cart"></ShoppingBagIcon>
-            {cartTotal > 0 ? (
+            {cartCount > 0 ? (
               <span className="cart-length">{cartIds.length}</span>
             ) : (
-              <></>
+              0
             )}
           </Link>
         </div>
