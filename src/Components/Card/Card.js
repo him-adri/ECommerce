@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import StarSharpIcon from "@mui/icons-material/StarSharp";
 import StarOutlineSharpIcon from "@mui/icons-material/StarOutlineSharp";
 import Favorite from "@mui/icons-material/Favorite";
@@ -13,94 +13,90 @@ const Card = ({ item }) => {
   console.log("himadri", item);
   const dispatch = useDispatch();
   const { cartIds, setCartIds, setCartTotal } = useHeader();
+  const [truncate, setTruncate] = useState(true);
 
-  const addToCart = (product_id) => {
-    console.log(product_id, "product_id");
-    const array = cartIds;
-    if (!array.includes(product_id)) {
-      array.push(product_id);
-      setCartIds(array);
-      localStorage.setItem("provis", JSON.stringify(array));
-      const temp = JSON.parse(localStorage.getItem("provis"));
-      console.log(temp);
-      setCartTotal(array.length);
-    } else {
-      const newArray = array.filter((id) => id !== product_id);
-      setCartIds(newArray);
-      localStorage.setItem("provis", JSON.stringify(newArray));
-      const temp = JSON.parse(localStorage.getItem("provis"));
-      console.log(temp);
-      setCartTotal(newArray.length);
-    }
-  };
+  var truncatedDesc =
+    item.title.slice(0, 20) +
+    `<p style='color: green; cursor: pointer; margin-top: 1rem; font-size: 0.9rem'>Read More..</p>`;
+  var fullDesc =
+    item.title +
+    "<p style='color: red; cursor:pointer; margin-top: 1rem; font-size: 0.9rem'> Read Less...</p>";
 
   return (
-    <div className="card">
-      <div className="cardLink">
-        <div className="wishlist">
-          <button className="favButton">
-            <Favorite />{" "}
-          </button>
-
-          <div className="cardHeader">
-            <img className="cardImg" src={item.image}></img>
-          </div>
-
-          <div className="cardBody">
-            <>
-              <p className="cardTitle">{item.title}</p>
-            </>
-            <div className="rating">
-              {[...Array(Math.round(item.rating.rate))].map((e, i) => (
-                <StarSharpIcon
-                  keys={`star-${i}`}
-                  className="StarIcon"
-                  aria-hidden="true"
-                />
-              ))}
-              {[...Array(5 - Math.round(item.rating.rate))].map((e, i) => (
-                <StarOutlineSharpIcon
-                  keys={`star-${i}`}
-                  className="emptyStarIcon"
-                  aria-hidden="true"
-                />
-              ))}
-              <p className="rating-count">{item.rating.count}</p>
+    <>
+      <div className="card-container">
+        <a href={`/product/${item.id}`}>
+          <div className="card">
+            <div className="wishlist">
+              <button className="favbutton">
+                <Favorite className="wishlist-icon" />
+              </button>
             </div>
-
-            <div>
-              <div className="price">
-                <span>${item.price}</span>
+            <div className="image">
+              <img className="item-image" src={item.image} />
+            </div>
+            <div className="image-details">
+              <div className="image-title">
+                <p
+                  onClick={() => setTruncate(!truncate)}
+                  className="title"
+                  dangerouslySetInnerHTML={{
+                    __html: truncate ? truncatedDesc : fullDesc,
+                  }}
+                ></p>
+                <div className="rating">
+                  {[...Array(Math.round(item.rating.rate))].map((e, i) => (
+                    <StarSharpIcon
+                      keys={`star-${i}`}
+                      className="staricon"
+                      aria-hidden="true"
+                    />
+                  ))}
+                  {[...Array(5 - Math.round(item.rating.rate))].map((e, i) => (
+                    <StarOutlineSharpIcon
+                      keys={`star-${i}`}
+                      className="emptystaricon"
+                      aria-hidden="true"
+                    />
+                  ))}
+                  <p className="rating-count">{item.rating.count}</p>
+                </div>
+                <div className="price">
+                  <p>$ {item.price}</p>
+                </div>
               </div>
             </div>
-
-            <div className="addtoCart">
-              <Link onClick={(e) => addToCart(item.id)}>
-                <button
-                  className="addtocartButton"
-                  onClick={() => {
-                    dispatch({ type: "UPDATE_CART_COUNT" });
-                    dispatch({
-                      type: "ADD_TO_CART_LIST",
-                      payload: {
-                        id: item.id,
-                        description: item.description,
-                        price: item.price,
-                        image: item.image,
-                      },
-                    });
-                  }}
-                >
-                  <ShoppingBagIcon className="shoppingCart"></ShoppingBagIcon>
-                  <span className="buttonText">Add to cart</span>
-                </button>
-              </Link>
+            <div className="addtocart">
+              <button className="addtocartbutton">
+                <ShoppingBagIcon className="shoppingbagicon" />
+                <span className="button-text">Add to Cart</span>
+              </button>
             </div>
           </div>
-        </div>
+        </a>
       </div>
-    </div>
+    </>
   );
 };
 
 export default Card;
+
+// const addToCart = (product_id) => {
+//   console.log(product_id, "product_id");
+//   const array = cartIds;
+//   if (!array.includes(product_id)) {
+//     array.push(product_id);
+//     setCartIds(array);
+//     localStorage.setItem("provis", JSON.stringify(array));
+//     const temp = JSON.parse(localStorage.getItem("provis"));
+//     console.log(temp);
+//     setCartTotal(array.length);
+//   } else {
+//     const newArray = array.filter((id) => id !== product_id);
+//     setCartIds(newArray);
+//     localStorage.setItem("provis", JSON.stringify(newArray));
+//     const temp = JSON.parse(localStorage.getItem("provis"));
+//     console.log(temp);
+//     setCartTotal(newArray.length);
+//   }
+// };

@@ -17,9 +17,9 @@ const Shop = () => {
               return <Card item={item}></Card>;
             })
           ) : (
-            <h1 className="loading">
+            <div className="loading">
               <img src={require("../../Assets/loading-gif.gif")}></img>
-            </h1>
+            </div>
           )}
         </div>
       </div>

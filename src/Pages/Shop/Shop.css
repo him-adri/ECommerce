@@ -1,7 +1,9 @@
 .shop-container {
-  width: 100%;
-  height: auto;
   background-color: #fedfcebc;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: auto;
 }
 .loading {
   display: grid;
