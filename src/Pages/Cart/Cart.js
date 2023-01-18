@@ -1,11 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import "./Cart.css";
 
 const Cart = () => {
   const cartList = useSelector((state) => state.cartList);
   console.log(cartList, "CartList");
 
+  const dispatch = useDispatch();
   return (
     <div className="cart-conatiner">
       <div className="cart-header">
@@ -20,7 +22,14 @@ const Cart = () => {
             <div className="cart-item-content">
               <p className="cart-item-description">{item.description}</p>
               <h3 className="cart-item-price">$ {item.price}</h3>
-              <button className="button">Remove from Cart</button>
+              <button
+                className="button"
+                onClick={() => {
+                  dispatch({ type: "REMOVE_FROM_CART" });
+                }}
+              >
+                Remove from Cart
+              </button>
             </div>
           </div>
         ))}

@@ -67,7 +67,20 @@ const Card = ({ item }) => {
               </div>
             </div>
             <div className="addtocart">
-              <button className="addtocartbutton">
+              <button
+                className="addtocartbutton"
+                onClick={() => {
+                  dispatch({
+                    type: "ADD_TO_CART_LIST",
+                    payload: {
+                      id: item.id,
+                      image: item.image,
+                      description: item.description,
+                      price: item.price,
+                    },
+                  });
+                }}
+              >
                 <ShoppingBagIcon className="shoppingbagicon" />
                 <span className="button-text">Add to Cart</span>
               </button>
