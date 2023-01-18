@@ -25,7 +25,7 @@ const Card = ({ item }) => {
   return (
     <>
       <div className="card-container">
-        <a href={`/product/${item.id}`}>
+        <a>
           <div className="card">
             <div className="wishlist">
               <button className="favbutton">
